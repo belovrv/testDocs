@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?><topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd" meta-keywords="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="columnNames" title="columnNames" _md-based="true"> <p _o="30" _o-sc="2,0" _o-l="2" _o-e="3,0" _o-tl="-1" _o-s="2,0" _o-cl="0" id="54acf160">Returns list of names for top-level columns of <code _o="77" _o-sc="2,48" _o-l="2" _o-e="2,58" _o-tl="-1" _o-s="2,47" _o-cl="47" id="ce00cc1d">DataFrame</code>.</p>
+</topic>

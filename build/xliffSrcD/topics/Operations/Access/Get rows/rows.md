@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?><topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd" meta-keywords="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="rows" title="rows" _md-based="true"> <p _o="23" _o-sc="2,0" _o-l="2" _o-e="3,0" _o-tl="47" _o-s="2,0" _o-cl="0" id="4a4abf04">Return rows of <code _o="38" _o-sc="2,16" _o-l="2" _o-e="2,26" _o-tl="-1" _o-s="2,15" _o-cl="15" id="65304fda">DataFrame</code> as <code _o="53" _o-sc="2,31" _o-l="2" _o-e="2,49" _o-tl="17" _o-s="2,30" _o-cl="30" id="c703d82a">Iterable&lt;DataRow></code>.</p>
+<chapter _o="75" _o-sc="4,3" _o-l="4" _o-e="4,15" _o-tl="-1" _o-s="4,0" _o-cl="0" id="rowsreversed" title="rowsReversed">
+<p _o="92" _o-sc="6,0" _o-l="6" _o-e="7,0" _o-tl="-1" _o-s="6,0" _o-cl="0" id="8e8d01e0">Return rows of <code _o="107" _o-sc="6,16" _o-l="6" _o-e="6,26" _o-tl="-1" _o-s="6,15" _o-cl="15" id="dbdfe62">DataFrame</code> in reversed order.</p>
+</chapter></topic>

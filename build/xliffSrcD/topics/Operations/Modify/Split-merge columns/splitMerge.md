@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?><topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd" meta-keywords="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="splitMerge" title="Split/merge columns" _md-based="true"> <list _o="38" _o-sc="2,0" _o-l="2" _o-e="4,0" _o-tl="-1" _o-s="2,0" _o-cl="0" id="b9f0a3db">
+<li _o="38" _o-sc="2,2" _o-l="2" _o-e="3,0" _o-tl="-1" _o-s="2,0" _o-cl="0" id="293d0a0"><a _o="40" _o-sc="2,3" LinkStatus="UNKNOWN" _o-l="2" _o-e="2,21" _o-tl="-1" _o-s="2,2" href="split.md" _o-cl="2" id="6350d37e"><code _o="41" _o-sc="2,4" _o-l="2" _o-e="2,10" _o-tl="-1" _o-s="2,3" _o-cl="3" id="efbb227a">split</code></a> column values horizontally or vertically</li>
+<li _o="101" _o-sc="3,2" _o-l="3" _o-e="4,0" _o-tl="-1" _o-s="3,0" _o-cl="0" id="df2a8285"><a _o="103" _o-sc="3,3" LinkStatus="UNKNOWN" _o-l="3" _o-e="3,21" _o-tl="-1" _o-s="3,2" href="merge.md" _o-cl="2" id="24e3f8d8"><code _o="104" _o-sc="3,4" _o-l="3" _o-e="3,10" _o-tl="-1" _o-s="3,3" _o-cl="3" id="57ac5214">merge</code></a> values from several columns into single column</li>
+</list>
+</topic>

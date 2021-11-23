@@ -1,0 +1,106 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2021-11-22T21:44:51.440012"><meta name="build-number" content="135">    <meta name="keywords" content="">   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P98');</script><script src="https://resources.jetbrains.com/storage/help-app/v3/analytics.js"></script>  <title>Aggregate pivot | Dataframe</title>   <link href="https://resources.jetbrains.com/storage/help-app/v3/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Aggregate pivot | Dataframe"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Dataframe Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="http://www.jetbrains.com/help//1.0/aggregatepivot.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Aggregate pivot | Dataframe"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "http://www.jetbrains.com/help//1.0/aggregatepivot.html#webpage", "url": "http://www.jetbrains.com/help//1.0/aggregatepivot.html", "name": "Aggregate pivot | Dataframe", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "http://www.jetbrains.com/help/#website", "url": "http://www.jetbrains.com/help/", "name": "Dataframe Help" }</script><!-- End Schema.org --></head>    <body data-id="aggregatePivot" data-main-title="Aggregate pivot" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="operations.md|Operations///aggregate.md|Aggregate"  >  <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Dataframe 1.0 Help</h3><div class="shortcuts-switcher"><label for="switch-shortcuts">Keymap:</label><select class="select _shortcuts" height="1" id="switch-shortcuts">  </select></div><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="aggregatePivot" id="aggregatePivot.md"  >Aggregate pivot</h1><p id="ef02d7d6" >To aggregate data groups in <a href="pivot.html" id="642a2aea"   ><code class="code "   >Pivot</code></a> or <a href="pivot.html#pivot-groupby" id="411f14ef"   ><code class="code "   >PivotGroupBy</code></a> with one or several statistics use <code class="code "   >aggregate</code>:</p><div class="tabs" id="4960aca1"><div class="tabs__content" data-gtm="tab" id="e68f3706"   data-title="Properties" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot { city }.aggregate { minBy { age }.name }
+df.pivot { city }.groupBy { name.firstName }.aggregate {
+    meanFor { age and weight } into &quot;means&quot;
+    stdFor { age and weight } into &quot;stds&quot;
+    maxByOrNull { weight }?.name?.lastName into &quot;biggest&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="b3850acc"   data-title="Accessors" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >val city by column&lt;String?&gt;()
+val name by columnGroup()
+val firstName by name.column&lt;String&gt;()
+val age by column&lt;Int&gt;()
+val weight by column&lt;Int?&gt;()
+
+df.pivot { city }.aggregate { minBy(age).name }
+
+df.pivot { city }.groupBy { firstName }.aggregate {
+    meanFor { age and weight } into &quot;means&quot;
+    stdFor { age and weight } into &quot;stds&quot;
+    maxByOrNull(weight)?.name?.lastName into &quot;biggest&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="850b7f87"   data-title="Strings" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot(&quot;city&quot;).aggregate { minBy(&quot;age&quot;)[&quot;name&quot;] }
+
+df.pivot(&quot;city&quot;).groupBy { &quot;name&quot;[&quot;firstName&quot;] }.aggregate {
+    meanFor(&quot;age&quot;, &quot;weight&quot;) into &quot;means&quot;
+    stdFor(&quot;age&quot;, &quot;weight&quot;) into &quot;stds&quot;
+    maxByOrNull(&quot;weight&quot;)?.getColumnGroup(&quot;name&quot;)?.get(&quot;lastName&quot;) into &quot;biggest&quot;
+}
+</div></div></div><p id="f0a4105b" >Shortcuts for common aggregation functions are also available:</p><div class="tabs" id="eac9ab1c"><div class="tabs__content" data-gtm="tab" id="40c83c6f"   data-title="Properties" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot { city }.maxFor { age and weight }
+df.groupBy { name }.pivot { city }.median { age }
+</div></div><div class="tabs__content" data-gtm="tab" id="ba7e4df5"   data-title="Accessors" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >val city by column&lt;String?&gt;()
+val name by columnGroup()
+val age by column&lt;Int&gt;()
+val weight by column&lt;Int?&gt;()
+
+df.pivot { city }.maxFor { age and weight }
+df.groupBy { name }.pivot { city }.median { age }
+</div></div><div class="tabs__content" data-gtm="tab" id="9f8ed9fd"   data-title="Strings" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot(&quot;city&quot;).maxFor(&quot;age&quot;, &quot;weight&quot;)
+df.groupBy(&quot;name&quot;).pivot(&quot;city&quot;).median(&quot;age&quot;)
+</div></div></div><p id="94ca9695" >By default, when aggregation function produces several values for data group, column hierarchy in resulting <code class="code "   >DataFrame</code> will be indexed first by pivot keys and then by the names of aggregated values. To reverse this order so that resulting columns will be indexed first by names of aggregated values and then by pivot keys, use <code class="code "   >separate=true</code> flag that is available in multi-result aggregation operations, such as <code class="code "   >aggregate</code> or <code class="code "   >&lt;stat&gt;For</code>:</p><div class="tabs" id="3c0f25e1"><div class="tabs__content" data-gtm="tab" id="a9655b97"   data-title="Properties" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot { city }.maxFor(separate = true) { age and weight }
+df.pivot { city }.aggregate(separate = true) {
+    min { age } into &quot;min age&quot;
+    maxOrNull { weight } into &quot;max weight&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="edc2b144"   data-title="Accessors" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >val city by column&lt;String?&gt;()
+val age by column&lt;Int&gt;()
+val weight by column&lt;Int?&gt;()
+
+df.pivot { city }.maxFor(separate = true) { age and weight }
+df.pivot { city }.aggregate(separate = true) {
+    min { age } into &quot;min age&quot;
+    maxOrNull { weight } into &quot;max weight&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="87b3a4bd"   data-title="Strings" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot(&quot;city&quot;).maxFor(&quot;age&quot;, &quot;weight&quot;, separate = true)
+df.pivot(&quot;city&quot;).aggregate(separate = true) {
+    min(&quot;age&quot;) into &quot;min age&quot;
+    maxOrNull(&quot;weight&quot;) into &quot;max weight&quot;
+}
+</div></div></div><p id="7ef8a8ba" >By default, any aggregation function will result in <code class="code "   >null</code> value for those matrix cells, where intersection of column and row keys produced an empty data group. You can specify default value for any aggregation by <code class="code "   >default</code> infix function. This value will replace all <code class="code "   >null</code> results of aggregation function over non-empty data groups as well. To use one default value for all aggregation functions, use <code class="code "   >default()</code> before aggregation.</p><div class="tabs" id="b252c5fa"><div class="tabs__content" data-gtm="tab" id="5a00067"   data-title="Properties" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot { city }.groupBy { name }.aggregate { min { age } default 0 }
+df.pivot { city }.groupBy { name }.aggregate {
+    median { age } into &quot;median age&quot; default 0
+    minOrNull { weight } into &quot;min weight&quot; default 100
+}
+df.pivot { city }.groupBy { name }.default(0).min()
+</div></div><div class="tabs__content" data-gtm="tab" id="cfb85a30"   data-title="Accessors" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >val city by column&lt;String?&gt;()
+val age by column&lt;Int&gt;()
+val weight by column&lt;Int?&gt;()
+val name by columnGroup()
+
+df.pivot { city }.groupBy { name }.aggregate { min { age } default 0 }
+df.pivot { city }.groupBy { name }.aggregate {
+    median { age } into &quot;median age&quot; default 0
+    minOrNull { weight } into &quot;min weight&quot; default 100
+}
+df.pivot { city }.groupBy { name }.default(0).min()
+</div></div><div class="tabs__content" data-gtm="tab" id="d1892980"   data-title="Strings" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.pivot(&quot;city&quot;).groupBy(&quot;name&quot;).aggregate { min(&quot;age&quot;) default 0 }
+df.pivot(&quot;city&quot;).groupBy(&quot;name&quot;).aggregate {
+    median(&quot;age&quot;) into &quot;median age&quot; default 0
+    minOrNull(&quot;weight&quot;) into &quot;min weight&quot; default 100
+}
+df.pivot(&quot;city&quot;).groupBy(&quot;name&quot;).default(0).min()
+</div></div></div><section class="chapter"  ><h2 id="pivot-inside-aggregate" data-toc="aggregatePivot#pivot-inside-aggregate"  >Pivot inside aggregate</h2><p id="11149670" ><a href="pivot.html" id="19afc9bb"   >pivot</a> operation can also be used inside <code class="code "   >aggregate</code> body of <code class="code "   >GroupBy</code>. This allows to combine column pivoting with other aggregation functions:</p><div class="tabs" id="a6b17cf"><div class="tabs__content" data-gtm="tab" id="7cc0fec3"   data-title="Properties" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.groupBy { name.firstName }.aggregate {
+    pivot { city }.aggregate(separate = true) {
+        mean { age } into &quot;mean age&quot;
+        count() into &quot;count&quot;
+    }
+    count() into &quot;total&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="7daa0e77"   data-title="Accessors" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >val city by column&lt;String?&gt;()
+val name by columnGroup()
+val firstName by name.column&lt;String&gt;()
+val age by column&lt;Int&gt;()
+
+df.groupBy { firstName }.aggregate {
+    pivot { city }.aggregate(separate = true) {
+        mean { age } into &quot;mean age&quot;
+        count() into &quot;count&quot;
+    }
+    count() into &quot;total&quot;
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="715e8ed1"   data-title="Strings" ><div class="code-block" data-lang="kotlin"    data-title="Kotlin"      >df.groupBy { &quot;name&quot;[&quot;firstName&quot;] }.aggregate {
+    pivot(&quot;city&quot;).aggregate(separate = true) {
+        mean(&quot;age&quot;) into &quot;mean age&quot;
+        count() into &quot;count&quot;
+    }
+    count() into &quot;total&quot;
+}
+</div></div></div></section><div class="last-modified"> Last modified: 22 November 2021</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="aggregategroupby.html">Aggregate groupBy</a>   <a class="navigation-links__next" href="multipledataframes.html">Multiple DataFrames</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/storage/help-app/v3/app.js"></script></body></html>

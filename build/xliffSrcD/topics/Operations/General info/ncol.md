@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?><topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd" meta-keywords="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ncol" title="ncol" _md-based="true"> <p _o="23" _o-sc="2,0" _o-l="2" _o-e="3,0" _o-tl="-1" _o-s="2,0" _o-cl="0" id="1aa5c392">Returns number of top-level columns in <code _o="62" _o-sc="2,40" _o-l="2" _o-e="2,50" _o-tl="-1" _o-s="2,39" _o-cl="39" id="b0a5c83d">DataFrame</code>.</p>
+</topic>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?><topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd" meta-keywords="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="implode" title="implode" _md-based="true"> 
+<p _o="93" _o-sc="4,0" _o-l="4" _o-e="5,0" _o-tl="-1" _o-s="4,0" _o-cl="0" id="7417f34">Returns <code _o="101" _o-sc="4,9" _o-l="4" _o-e="4,19" _o-tl="-1" _o-s="4,8" _o-cl="8" id="58768c12">DataFrame</code> where values in given columns are merged into lists grouped by other columns.</p>
+<p _o="192" _o-sc="6,0" _o-l="6" _o-e="7,0" _o-tl="-1" _o-s="6,0" _o-cl="0" id="253e7bbd">This is reverse operation to <a _o="221" _o-sc="6,30" LinkStatus="UNKNOWN" _o-l="6" _o-e="6,52" _o-tl="-1" _o-s="6,29" href="explode.md" _o-cl="29" id="b2a61707"><code _o="222" _o-sc="6,31" _o-l="6" _o-e="6,39" _o-tl="-1" _o-s="6,30" _o-cl="30" id="636dbb53">explode</code></a></p>
+<p _o="246" _o-sc="8,0" _o-l="8" _o-e="9,0" _o-tl="-1" _o-s="8,0" _o-cl="0" id="59f688d0">Imploded columns will change their types:</p>
+<list _o="288" _o-sc="9,0" _o-l="9" _o-e="11,0" _o-tl="16" _o-s="9,0" _o-cl="0" id="b909b54e">
+<li _o="288" _o-sc="9,2" _o-l="9" _o-e="10,0" _o-tl="16" _o-s="9,0" _o-cl="0" id="822b96df"><code _o="290" _o-sc="9,3" _o-l="9" _o-e="9,5" _o-tl="-1" _o-s="9,2" _o-cl="2" id="2974a9e0">T</code> to <code _o="297" _o-sc="9,10" _o-l="9" _o-e="9,18" _o-tl="7" _o-s="9,9" _o-cl="9" id="418e1dc2">Many&lt;T></code></li>
+<li _o="307" _o-sc="10,2" _o-l="10" _o-e="11,0" _o-tl="-1" _o-s="10,0" _o-cl="0" id="69af8708"><code _o="309" _o-sc="10,3" _o-l="10" _o-e="10,11" _o-tl="-1" _o-s="10,2" _o-cl="2" id="39763024">DataRow</code> to <code _o="322" _o-sc="10,16" _o-l="10" _o-e="10,26" _o-tl="-1" _o-s="10,15" _o-cl="15" id="3ea2b443">DataFrame</code></li>
+</list>
+<p _o="335" _o-sc="12,0" _o-l="12" _o-e="13,0" _o-tl="-1" _o-s="12,0" _o-cl="0" id="bfe5728f">Note that imploded <a _o="354" _o-sc="12,20" LinkStatus="UNKNOWN" _o-l="12" _o-e="12,61" _o-tl="-1" _o-s="12,19" href="DataColumn.md#columngroup" _o-cl="19" id="520be45b"><code _o="355" _o-sc="12,21" _o-l="12" _o-e="12,33" _o-tl="-1" _o-s="12,20" _o-cl="20" id="acb647d1">ColumnGroup</code></a> will convert into <a _o="415" _o-sc="12,81" LinkStatus="UNKNOWN" _o-l="12" _o-e="12,122" _o-tl="-1" _o-s="12,80" href="DataColumn.md#framecolumn" _o-cl="80" id="e0386a55"><code _o="416" _o-sc="12,82" _o-l="12" _o-e="12,94" _o-tl="-1" _o-s="12,81" _o-cl="81" id="719cdc76">FrameColumn</code></a></p>
+
+<code _o="480" _o-sc="17,0" _o-l="16" _o-e="18,3" _o-tl="-1" _o-s="16,0" style="block" _o-cl="0" id="ffd2bee3" lang="kotlin">df.implode { name and age and weight and isHappy }
+</code>
+
+<p _o="559" _o-sc="22,0" _o-l="22" _o-e="23,0" _o-tl="-1" _o-s="22,0" _o-cl="0" id="35b31164">Set <code _o="563" _o-sc="22,5" _o-l="22" _o-e="22,15" _o-tl="-1" _o-s="22,4" _o-cl="4" id="bffdcf2">dropNulls</code> flag to filter</p>
+</topic>
